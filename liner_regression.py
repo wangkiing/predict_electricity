@@ -59,7 +59,7 @@ class liner_regression(object):
         MSE = metrics.mean_squared_error(self.predict,self.y);
         print("RSM:",np.sqrt(MSE));
     
-    def get_predit_data_picture(self):
+    def get_predict_data_picture(self):
         fig, ax = plt.subplots()
         ax.scatter(y, self.predict)
         ax.plot([self.y.min(), self.y.max()], [self.y.min(), self.y.max()], 'k--', lw=4)
@@ -74,7 +74,7 @@ if __name__=='__main__':
 #    x = csv_data[['AT', 'V', 'AP', 'RH']];
 #    y = csv_data['PE'];
     
-    cvs_file = 'C:\\Users\\wangkiing\Desktop\\人工智能\\51101_data.csv';
+    cvs_file = 'F:\\启明星\\人工智能\\51101_data.csv';
     csv_series = pd.read_csv(cvs_file,encoding='gbk');
     #去除NA值
     csv_series.dropna(inplace=True)
@@ -91,4 +91,4 @@ if __name__=='__main__':
     #采用交叉验证模型的RSE比未采用的大，主要原因是我们这里是对所有折的样本做测试集对应的预测值的RSE，
     #而之前仅仅对25%的测试集做了MSE。两者的先决条件并不同。
     model.cross_validation();
-    model.get_predit_data_picture();
+    model.get_predict_data_picture();
